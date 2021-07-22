@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Please rate your service</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../static/logo.png" alt="Lexus" class="logo" />
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Customer Name</h3>
+          <input
+            type="text"
+            name="customer"
+            placeholder="Name of vehicle owner"
+          />
+        </div>
+        <div class="form-group">
+         <h3>Dealer</h3>
+          <select name="dealer">
+            <option value="">Select Dealer</option>
+            <option value="Rahul C">Rahul C</option>
+            <option value="Rohit K">Rohit K</option>
+            <option value="Rohan Sirigeri">Rohan Sirigeri</option>
+            <option value="Raghvendra K">Raghvendra K</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Please rate your dealer</h3>
+          <fieldset>
+            <span class="star-cb-group">
+              <input type="radio" id="rating-5" name="rating" value="5" />
+              <label for="rating-5">5</label>
+              <input type="radio" id="rating-4" name="rating" value="4" checked="checked" />
+              <label for="rating-4">4</label>
+              <input type="radio" id="rating-3" name="rating" value="3" />
+              <label for="rating-3">3</label>
+              <input type="radio" id="rating-2" name="rating" value="2" />
+              <label for="rating-2">2</label>
+              <input type="radio" id="rating-1" name="rating" value="1" />
+              <label for="rating-1">1</label>
+              <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" />
+              <label for="rating-0">0</label>
+            </span>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <h3>Comments about your experience</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="8"
+            placeholder="Tell us what you liked and/or did not like"
+          ></textarea>
+        </div>
+        <input type="submit" value="SUBMIT" class="btn" />
+      </form>
+
+      <form action="/view" method="POST">
+        <input type="submit" value="VIEW ALL FEEDBACKS" class="btn" />
+      </form>
+      
+    </div>
+  </body>
+</html>
